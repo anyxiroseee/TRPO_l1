@@ -1,9 +1,9 @@
 #include "filestate.h"
 
-FileState::FileState(const QString& fileName){
+FileState::FileState(const QString& Name){
 
     QFileInfo fileInfo();
-    fileName = fileName;
+    fileName = Name;
     size = fileInfo.size();
     isExist = fileInfo.isExist();
 

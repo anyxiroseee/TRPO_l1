@@ -7,16 +7,16 @@ class FileState
 {
 
 private:
-QString fileName; //имя
-bool isExist; // файл существует?
-qint64 size = 0; //размер
+QString fileName;                      //имя
+bool isExist;                          //файл существует?
+qint64 size = 0;                       //размер
 
 public:
-FileState();
-FileState (const QString& fileName);
-QString getfileName() const; //получаем имя файла
-bool getisExist() const; //проверяем, существует файл или нет
-qint64 getsize() const; //получаем размер
+FileState();                           //конструктор по умолчанию
+FileState (const QString& fileName);   //конструктор с параметром (имя файла)
+QString getfileName() const;           //получаем имя файла
+bool getisExist() const;               //проверяем, существует файл или нет
+qint64 getsize() const;                //получаем размер файла
 
 }
 
