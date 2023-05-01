@@ -2,9 +2,22 @@
 
 FileState::FileState(const QString& Name){
 
-    QFileInfo fileInfo();
-    fileName = Name;
-    size = fileInfo.size();
-    isExist = fileInfo.isExist();
+    fileName = Name; //задаем имя файла
+    QFileInfo fileInfo(fileName);
+    size = fileInfo.size(); //определяем размер
+    isExist = fileInfo.isExist(); //определяем, существует ли файл
+}
 
+
+QString FileState::getfileName()
+{
+    return fileName;
+}
+qint64 FileState::getsize()
+{
+    return size;
+}
+bool FileState::getisExist()
+{
+    return isExist;
 }

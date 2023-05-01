@@ -1,11 +1,17 @@
 #ifndef CHECKSTATESFILES_H
 #define CHECKSTATESFILES_H
-#include <QString>
 
-class CheckStatesFiles
+#include <QString>
+#include <QObject>
+
+class CheckStatesFiles : public QObject //вывод
 {
+    Q_OBJECT
 public:
-    CheckStatesFiles();
+    CheckStatesFiles(); //конструктор
+    void createdState(QString fileName, qint64 size);
+    void changedState(QString fileName, qint64 size);
+    void deletedState(QString fileName);
 
 }
 
