@@ -11,11 +11,13 @@ class FileMonitor : public QObject
 private:
     Q_OBJECT
     QVector<FileState> infoFiles; //контейнер с информацией о файле
-    FileMonitor();
+
 
 public:
     bool AddFile(QString Name); // добавляем файл под наблюдение
     bool DelFile(QString Name); // исключаем файл из наблюдения
+    void UpdateFile(); // обновление информации о файле
+    FileMonitor();
 
 signals:
     void startMonitoring(QString Name, qint64 size); //сигнал о добавлении под наблюдение
