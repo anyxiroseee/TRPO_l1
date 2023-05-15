@@ -21,3 +21,11 @@ bool FileState::getisExist()
 {
     return isExist;
 }
+
+bool FileState::operator == (FileState file)const //перегрузка оператора сравнения
+{
+    if (file.fileName == fileName)
+        return false;
+    else
+        return true;
+}

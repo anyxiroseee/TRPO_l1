@@ -18,6 +18,7 @@ QString getfileName() const;           //получаем имя файла
 bool getisExist() const;               //проверяем, существует файл или нет
 qint64 getsize() const;                //получаем размер файла
 
+bool operator == (const FileState& file)const; //перегрузка оператора сравнения
 }
 
 #endif // FILESTATE_H
