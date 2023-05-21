@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FILESTATE_H
 #define FILESTATE_H
 #include <QFileInfo>
@@ -17,8 +18,7 @@ FileState (const QString& fileName);   //конструктор с параме�
 QString getfileName() const;           //получаем имя файла
 bool getisExist() const;               //проверяем, существует файл или нет
 qint64 getsize() const;                //получаем размер файла
-
-bool operator == (const FileState& file)const; //перегрузка оператора сравнения
-}
+bool operator == (const FileState& file) const;
+};
 
 #endif // FILESTATE_H

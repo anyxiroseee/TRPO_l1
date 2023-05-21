@@ -12,7 +12,8 @@ public:
     void createdState(QString fileName, qint64 size);
     void changedState(QString fileName, qint64 size);
     void deletedState(QString fileName);
-
+    void startMonitorState(QString fileName, qint64 size);
+    void endofMonitorState(QString fileName, qint64 size);
 }
 
 #endif // CHECKSTATESFILES_H

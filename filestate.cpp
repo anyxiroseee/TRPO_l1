@@ -8,7 +8,6 @@ FileState::FileState(const QString& Name){
     isExist = fileInfo.isExist(); //определяем, существует ли файл
 }
 
-
 QString FileState::getfileName()
 {
     return fileName;

@@ -1,4 +1,6 @@
 #include "filemonitor.h"
+#include "filestate.h"
+#include "checkstatesfiles.h"
 
 FileMonitor::FileMonitor()
 {
