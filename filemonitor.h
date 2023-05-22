@@ -16,8 +16,9 @@ private:
 public:
     bool AddFile(QString Name); // добавляем файл под наблюдение
     bool DelFile(QString Name); // исключаем файл из наблюдения
-    void UpdateFile(); // обновление информации о файле
+    void UpdateFile(); // обновление информации о файлe
     FileMonitor();
+
 
 signals:
     void startMonitoring(QString Name, qint64 size); //сигнал о добавлении под наблюдение
@@ -26,6 +27,6 @@ signals:
     void checkDel(QString Name); //сигнал об удалении файла
     void endofMonitoring(QString Name); //сигнал об исключении из наблюдения
 
-}
+};
 
 #endif // FILEMONITOR_H
