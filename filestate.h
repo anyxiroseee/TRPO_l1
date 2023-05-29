@@ -10,7 +10,7 @@ class FileState
 private:
 QString fileName;                      //имя
 bool isExist;                          //файл существует?
-qint64 size;                       //размер DELETE NOL
+qint64 size;                       //размер
 
 public:
 FileState();                           //конструктор по умолчанию

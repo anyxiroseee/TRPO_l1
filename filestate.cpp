@@ -25,7 +25,7 @@ bool FileState::getisExist()
     return isExist;
 }
 
-bool FileState::operator == (const FileState &file) const //перегрузка оператора сравнения
+bool FileState::operator == (const FileState& file) const //перегрузка оператора сравнения
 {
     if (file.fileName == fileName)
         return false;

@@ -13,6 +13,7 @@ public:
     void deletedState(QString fileName);
     void startMonitorState(QString fileName, qint64 size);
     void endofMonitorState(QString fileName);
+    void existState(QString fileName, qint64 size);
 };
 
 #endif // CHECKSTATESFILES_H
