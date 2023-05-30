@@ -8,10 +8,10 @@ class CheckStatesFiles : public QObject //вывод
 {
     Q_OBJECT
 public:
-    CheckStatesFiles(); //конструктор
+    CheckStatesFiles();
     void changedState(QString fileName, qint64 size);
-    void deletedState(QString fileName);
     void startMonitorState(QString fileName, qint64 size);
+    void deletedState(QString fileName);
     void endofMonitorState(QString fileName);
     void existState(QString fileName, qint64 size);
 };

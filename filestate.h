@@ -14,7 +14,7 @@ qint64 size;                       //размер
 
 public:
 FileState();                           //конструктор по умолчанию
-FileState (const QString& fileName);   //конструктор с параметром (имя файла)
+FileState (const QString& Name);   //конструктор с параметром (имя файла)
 QString getfileName();           //получаем имя файла
 bool getisExist();               //проверяем, существует файл или нет
 qint64 getsize();                //получаем размер файла

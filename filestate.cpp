@@ -1,13 +1,18 @@
 #include "filestate.h"
 
+
 FileState::FileState(){
+
+    fileName = "null";
+    size = 0;
+    isExist = false;
 
 }
 
 FileState::FileState(const QString& Name){
 
     fileName = Name; //задаем имя файла
-    QFileInfo fileInfo(fileName);
+    QFileInfo fileInfo(fileName); //инициализация объекта
     size = fileInfo.size(); //определяем размер
     isExist = fileInfo.exists(); //определяем, существует ли файл
 }
@@ -28,7 +33,7 @@ bool FileState::getisExist()
 bool FileState::operator == (const FileState& file) const //перегрузка оператора сравнения
 {
     if (file.fileName == fileName)
-        return false;
-    else
         return true;
+        return false;
 }
+

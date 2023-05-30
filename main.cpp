@@ -7,7 +7,7 @@
 
 int main (int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+ QCoreApplication a(argc, argv);
  setlocale(LC_ALL, "Russian");
  CheckStatesFiles Print;
  FileMonitor monitor;
@@ -18,15 +18,16 @@ int main (int argc, char *argv[])
         QObject::connect(&monitor, &FileMonitor::checkDel, &Print, &CheckStatesFiles::deletedState);
         QObject::connect(&monitor, &FileMonitor::checkExistence, &Print, &CheckStatesFiles::existState);
 
-    // добавляем файлы для отслеживания
+    //добавляем файлы для отслеживания
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
-   // monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
-
+    monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
+/*
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
+    monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");*/
 
-    while (1) {
+    while (true) {
            monitor.UpdateFile();
        }
 

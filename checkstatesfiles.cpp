@@ -21,3 +21,8 @@ void CheckStatesFiles::deletedState(QString fileName) {
 void CheckStatesFiles::changedState(QString fileName, qint64 Size) {
         wcout << L"Файл изменен: " << fileName.toStdWString() << L", размер: "<< Size << L" байт"<< endl;
 }
+
+void CheckStatesFiles::existState(QString fileName, qint64 Size) {
+
+        wcout << L"Файл создан: "<<  fileName.toStdWString() << L", размер: " << Size << L" байт" << endl;
+}
