@@ -36,15 +36,15 @@ void FileMonitor::UpdateFile()
 
     for (int k = 0; k < infoFiles.count(); k++)
     {
-        FileState newfile(infoFiles[k].getfileName()); //берем к-й текущий файл
+        FileState newfile(infoFiles[k].getfileName());
         if ((newfile.getisExist() != infoFiles[k].getisExist()) && (newfile.getisExist())){
             infoFiles[k] = newfile; //обновляем данные о файле в контейнере
             emit checkExistence(newfile.getfileName(), newfile.getsize()); //сигнал о сущ-нии файла
         }
-        else if ((newfile.getisExist() != infoFiles[k].getisExist()) && (!newfile.getisExist()))
+        else if ((newfile.getisExist() != infoFiles[k].getisExist()) && (!newfile.getisExist())) //текущее состояние файла не совпадает с предыдущим
         {
             infoFiles[k] = newfile;
-            emit checkDel(newfile.getfileName());
+            emit checkDel(newfile.getfileName()); //сигнал об удалении
         }
         else if ((newfile.getsize() != infoFiles[k].getsize()) && (newfile.getisExist()))
         {

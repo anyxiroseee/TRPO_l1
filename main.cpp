@@ -22,10 +22,10 @@ int main (int argc, char *argv[])
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
-/*
+
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
-    monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");*/
+    monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
 
     while (true) {
            monitor.UpdateFile();

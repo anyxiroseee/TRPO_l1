@@ -9,6 +9,8 @@ class CheckStatesFiles : public QObject //вывод
     Q_OBJECT
 public:
     CheckStatesFiles();
+
+public slots:
     void changedState(QString fileName, qint64 size);
     void startMonitorState(QString fileName, qint64 size);
     void deletedState(QString fileName);
