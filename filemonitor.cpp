@@ -1,6 +1,5 @@
 #include "filemonitor.h"
 #include "filestate.h"
-#include "checkstatesfiles.h"
 #include <iostream>
 
 FileMonitor::FileMonitor()
