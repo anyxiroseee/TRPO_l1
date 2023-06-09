@@ -3,7 +3,16 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <QObject>
+#include <QTextStream>
+#include <QFileInfo>
+
 using namespace std;
+
+void changedState(QString fileName, qint64 size);
+void startMonitorState(QString fileName, qint64 size);
+void deletedState(QString fileName);
+void endofMonitorState(QString fileName);
+void existState(QString fileName, qint64 size);
 
 int main (int argc, char *argv[])
 {
@@ -12,11 +21,6 @@ int main (int argc, char *argv[])
  setlocale(LC_ALL, "Russian");
  FileMonitor monitor;
 
-   void changedState(QString fileName, qint64 size);
-   void startMonitorState(QString fileName, qint64 size);
-   void deletedState(QString fileName);
-   void endofMonitorState(QString fileName);
-   void existState(QString fileName, qint64 size);
 
    QObject::connect(&monitor, &FileMonitor::startMonitoring, startMonitorState);
    QObject::connect(&monitor, &FileMonitor::endofMonitoring, endofMonitorState);
@@ -24,14 +28,55 @@ int main (int argc, char *argv[])
    QObject::connect(&monitor, &FileMonitor::checkDel, deletedState);
    QObject::connect(&monitor, &FileMonitor::checkExistence, existState);
 
-    //добавляем файлы для отслеживания
+   int choice = 0;
+   QTextStream qin(stdin); //создание потока ввода с консоли
+   QString fileName;
+   //цикл выполняется до тех пор, пока значение choice не будет равно 3 (т.е пока пользователь не скажет закрыть окно ввода)
+   while (choice != 3) {
+       wcout << L"Выберите действие:" << endl;
+       wcout << L"1 - добавить файл под наблюдение" << endl;
+       wcout << L"2 - удалить файл из наблюдения" << endl;
+       wcout << L"3 - выход из окна выбора" << endl;
+
+       qin >> choice;
+
+       switch (choice) {
+           case 1:
+               wcout << L"Введите имя файла для добавления под наблюдение: " << endl;
+               qin >> fileName;
+               if (QFile::exists(fileName)) {
+                   monitor.AddFile(fileName);
+               } else {
+                   wcout << L"Файл не найден на компьютере!" << endl;
+               }
+               break;
+           case 2:
+               wcout << L"Введите имя файла для исключения из наблюдения: " << endl;
+               qin >> fileName;
+               if (QFile::exists(fileName)) {
+                   monitor.DelFile(fileName);
+               } else {
+                   wcout << L"Файл не найден на компьютере!" << endl;
+               }
+               break;
+           case 3:
+               wcout << L"Выход из окна выбора..." << endl;
+               break;
+           default:
+               wcout << L"Некорректный ввод! Пожалуйста, выберите 1, 2 или 3." << endl;
+               break;
+       }
+   }
+
+
+ /*   //добавляем файлы для отслеживания
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
     monitor.AddFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
 
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f1.txt");
     monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f2.txt");
-    monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f3.txt");
+    monitor.DelFile("C:/Users/anyxi/Desktop/forlab1/f3.txt"); */
 
     while (true) {
            monitor.UpdateFile();
