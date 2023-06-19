@@ -19,7 +19,7 @@ int main (int argc, char *argv[])
 
  QCoreApplication a(argc, argv);
  setlocale(LC_ALL, "Russian");
- FileMonitor monitor;
+ FileMonitor& monitor = FileMonitor::Instance();
 
 
    QObject::connect(&monitor, &FileMonitor::startMonitoring, startMonitorState);
@@ -28,10 +28,10 @@ int main (int argc, char *argv[])
    QObject::connect(&monitor, &FileMonitor::checkDel, deletedState);
    QObject::connect(&monitor, &FileMonitor::checkExistence, existState);
 
-   int choice = 0;
-   QTextStream qin(stdin); //создание потока ввода с консоли
+   int choice = -1;
+   QTextStream qin(stdin); //создание потока ввода с консоли, stdin - стандартный входной поток
    QString fileName;
-   //цикл выполняется до тех пор, пока значение choice не будет равно 3 (т.е пока пользователь не скажет закрыть окно ввода)
+
    while (choice != 3) {
        wcout << L"Выберите действие:" << endl;
        wcout << L"1 - добавить файл под наблюдение" << endl;

@@ -53,3 +53,8 @@ void FileMonitor::UpdateFile()
     }
 }
 
+FileMonitor& FileMonitor::Instance()
+{
+    static FileMonitor monitor;
+    return monitor;
+}
